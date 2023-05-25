@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  
+  get("/", { :controller => "user_authentication", :action => "index" })
+
   # Routes for the User account:
 
   # SIGN UP FORM
