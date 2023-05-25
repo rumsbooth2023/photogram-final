@@ -8,6 +8,9 @@
     <th>
       Private?
     </th>
+    
+    <th>
+    </th>
 
     <th>
     </th>
@@ -21,6 +24,13 @@
 
     <td>
       <%= user.private %>
+    </td>
+
+    <td>
+      <% if session.fetch(:user_id) == nil %>
+      <% else %>
+      <button>Follow</button>
+      <% end %>
     </td>
 
     <td>

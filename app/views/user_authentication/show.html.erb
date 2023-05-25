@@ -10,6 +10,7 @@
   <dt>Following</dt>
   <dd><%= @user.following.count %></dd>
 
+<% if session.fetch(:user_id) == @user.id %>
   <dt>Edit user</dt>
   <dd>
     <form action="/update_user/<%= @user.id %>" >
@@ -19,7 +20,7 @@
       <button>Update user</button>
     </form>
   </dd>
-</dl>
+  <% end %>
 <nav>
   <ul>
     <li>
