@@ -3,6 +3,7 @@
 # Table name: users
 #
 #  id              :integer          not null, primary key
+#  avatar          :string
 #  comments_count  :integer
 #  email           :string
 #  likes_count     :integer
@@ -13,6 +14,9 @@
 #  updated_at      :datetime         not null
 #
 class User < ApplicationRecord
+  
+  mount_uploader :avatar, AvatarUploader
+
   validates(:username,
     {
       :presence => true,
