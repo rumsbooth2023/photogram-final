@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   get("/", { :controller => "user_authentication", :action => "index" })
 
   # Routes for the User account:
+  get("/users", { :controller => "user_authentication", :action => "index" })
+  get("/users/:username", {:controller => "user_authentication", :action => "show"})
 
   # SIGN UP FORM
   get("/user_sign_up", { :controller => "user_authentication", :action => "sign_up_form" })        
