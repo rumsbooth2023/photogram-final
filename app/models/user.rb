@@ -89,5 +89,6 @@ class User < ApplicationRecord
 
     return Photo.where({ :id => array_of_discover_photo_ids })
   end
-end
 
+  
+end
