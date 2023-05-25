@@ -1,4 +1,7 @@
 Rails.application.configure do
+  require "carrierwave"
+  require "carrierwave/orm/activerecord"
+
   config.hosts.clear
   path = Rails.root.join("whitelist.yml")
   default_whitelist_path = Rails.root.join("default_whitelist.yml")
