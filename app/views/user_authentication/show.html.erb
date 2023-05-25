@@ -7,6 +7,22 @@
   <dd><%= @user.private %></dd>
   <dt>Followers</dt>
   <dd><%= @user.followers.count %></dd>
+    <% current_user_follow = FollowRequest.where({ :recipient_id => @user.id, :sender_id => session.fetch(:user_id) }) %>
+        <% the_follow = current_user_follow.at(0) %>
+    <% if the_follow == nil %>
+    <div>
+      <form action="/insert_follow_request" method="post">
+      <input type="hidden" name="query_recipient_id" value="<%= @user.id %>">
+      <button>
+      Follow
+      </button>
+      </form>
+      <% else %>
+      <a href="/delete_follow_request/2411">
+        Unfollow
+      </a>
+    </div>
+    <% end %>
   <dt>Following</dt>
   <dd><%= @user.following.count %></dd>
 
@@ -57,6 +73,10 @@
       Posted
     </th>
 
+    <th>
+      Likes
+    </th>
+
     <th></th>
   </tr>
 
@@ -75,7 +95,11 @@
     </td>
 
     <td>
-      <%= photo.created_at %>
+      <%= time_ago_in_words(photo.updated_at) %>
+    </td>
+
+    <td>
+      <%= photo.likes_count %>
     </td>
     
     <td>
